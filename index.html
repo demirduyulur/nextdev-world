@@ -1,27 +1,177 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NeXTDEV.world</title>
+<title>NeXTDEV.world — Personal Workstation</title>
+
 <style>
-body { margin: 0; min-height: 100vh; min-height: 100svh; background: #000; display: grid; place-items: center; }
-svg { display: block; width: 220px; max-width: 70vw; height: auto; }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #080808;
+  color: #ddd;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.workstation {
+  width: 100%;
+  max-width: 1000px;
+  background: #151515;
+  padding: 36px;
+  border: 2px solid #444;
+  box-shadow:
+    inset 2px 2px 0 #777,
+    inset -2px -2px 0 #050505,
+    0 25px 65px #000;
+}
+
+.grille {
+  height: 48px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #030303 0px,
+    #030303 3px,
+    #303030 4px,
+    #050505 5px,
+    #050505 7px
+  );
+  border: 2px solid #050505;
+  box-shadow:
+    inset 0 2px 4px #000,
+    0 1px 0 #555;
+}
+
+.center {
+  min-height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 45px 15px;
+}
+
+.logo {
+  width: 230px;
+  max-width: 75%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 15px #000);
+}
+
+.window {
+  border: 2px solid;
+  border-color: #eee #333 #333 #eee;
+  background: #999;
+  box-shadow: 3px 4px 0 #050505;
+  margin-bottom: 28px;
+}
+
+.titlebar {
+  background: linear-gradient(
+    #555,
+    #111 65%,
+    #000
+  );
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 9px 12px;
+  border-bottom: 2px solid #000;
+}
+
+.window-content {
+  color: #222;
+  text-align: center;
+  padding: 24px;
+  font-family: monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0;
+  color: #aaa;
+  font: 11px monospace;
+}
+
+.led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #77d977;
+  box-shadow: 0 0 7px #66ff66;
+  margin-right: 7px;
+}
+
+footer {
+  color: #777;
+  text-align: center;
+  font: 11px monospace;
+  margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+  body { padding: 12px; }
+  .workstation { padding: 18px; }
+  .center { min-height: 260px; }
+  .logo { width: 190px; }
+  .status { font-size: 9px; }
+}
 </style>
 </head>
+
 <body>
-<!-- NeXT logo: https://commons.wikimedia.org/wiki/File:NeXT_logo.svg -->
-<svg viewBox="0 0 179.06 218.4" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logo-title">
-<title id="logo-title">NeXT</title>
-<g transform="matrix(1.3333 0 0 -1.3333 -13.135 231.2)">
-<path d="m17.444 130.65 82.617 42.749 44.087-80.458-82.708-42.66-43.996 80.369"/>
-<path d="m16.984 127.05 43.066-78.748-11.3-36.541-38.898 71.011 7.132 44.278"/>
-<path d="m127.85 49.649-77.43-40.05 11.947 38.701 80.488 41.489-15.004-40.141"/>
-<path d="m52.732 143.79 4.4457 2.249 19.081-34.829-41.215 10.172 12.965-23.671-5.0008-2.5211-18.71 34.111 41.957-10.352-13.523 24.841" fill="#f14729"/>
-<path d="m118.68 127.86-34.733-17.822 2.2227-4.139 15.188 7.83 16.209-29.519 4.54 2.3383-16.209 29.52 15.005 7.741-2.223 4.051" fill="#e1038c"/>
-<path d="m61.904 58.289 5.0008-1.3485 6.7602 22.23 23.527-6.5715 1.3875 4.8594-23.524 6.5715 6.4828 21.6-5.0008 1.349-6.4828-21.6-23.064 6.4797-1.4816-4.859 23.155-6.4801-6.7602-22.23" fill="#17ae65"/>
-<path d="m90.994 146.34-16.958-8.762c-1.7593 5.76 1.2961 13.86 7.5953 17.191 6.2965 3.149 14.541 1.44 18.707-3.6l-9.3449-4.829 1.2305-4.592 15.468 7.999c-5.087 9.914-18.005 14.112-28.101 8.891-9.7242-5.04-13.892-17.73-8.6141-27.359 5.2809-9.63 18.063-13.771 28.156-8.64 7.873 4.05 11.764 12.148 10.931 20.071l-5.186-0.451c0.924-6.121-2.04-12.42-7.9677-15.481-7.1293-3.689-17.134-0.358-20.93 6.569l16.243 8.401-1.2305 4.592" fill="#fde012"/>
-</g>
-</svg>
+
+<main class="workstation">
+
+  <div class="grille"></div>
+
+  <section class="center">
+    <img
+      src="next-logo.png"
+      alt="Original NeXT logo"
+      class="logo"
+    >
+  </section>
+
+  <section class="window">
+    <div class="titlebar">
+      NeXTDEV.world — Workspace
+    </div>
+
+    <div class="window-content">
+      WELCOME TO NeXTDEV.WORLD
+      <p>Personal Retrocomputing Workstation</p>
+      <p>NeXT / UNIX / TECHNOLOGY</p>
+    </div>
+  </section>
+
+  <div class="status">
+    <span><span class="led"></span>SYSTEM READY</span>
+    <span>NeXTSTEP INSPIRED</span>
+  </div>
+
+  <div class="grille"></div>
+
+  <footer>
+    NeXTDEV.world © 2026
+    <p>Independent retrocomputing project</p>
+  </footer>
+
+</main>
+
 </body>
 </html>
