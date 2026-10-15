@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+
+<title>NeXTDEV.world — Development</title>
+<meta name="description" content="NeXTDEV Development Workstation — NeXT, UNIX, retrocomputing and software projects.">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #080808;
+  color: #ddd;
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.workstation {
+  width: 100%;
+  max-width: 1100px;
+  padding: 30px;
+  background: #191919;
+  border: 3px solid;
+  border-color: #777 #050505 #050505 #777;
+  box-shadow: inset 2px 2px #aaa,
+              inset -2px -2px #000,
+              0 25px 60px #000;
+}
+
+.grille {
+  height: 55px;
+  border: 3px solid #050505;
+  background: repeating-linear-gradient(
+    to bottom,
+    #000 0px,
+    #000 3px,
+    #444 4px,
+    #090909 5px,
+    #090909 8px
+  );
+  box-shadow: inset 0 3px 6px #000,
+              0 2px 1px #555;
+}
+
+.logo-area {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 10px;
+}
+
+.next-logo {
+  width: 230px;
+  max-width: 75%;
+  height: auto;
+  filter: drop-shadow(0 14px 15px #000);
+}
+
+.window {
+  margin-bottom: 25px;
+  background: #aaa;
+  border: 3px solid;
+  border-color: #eee #333 #333 #eee;
+  box-shadow: 4px 4px #000;
+}
+
+.titlebar {
+  background: linear-gradient(#555, #111);
+  color: white;
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.window-content {
+  color: #111;
+  text-align: center;
+  font-family: monospace;
+  padding: 24px 12px;
+}
+
+.window-content h1 {
+  font-size: 19px;
+  letter-spacing: 2px;
+}
+
+.window-content p {
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 25px 0;
+}
+
+.next-button {
+  display: inline-block;
+  max-width: 100%;
+  padding: 13px 22px;
+  background: #aaa;
+  color: #111;
+  text-decoration: none;
+  text-align: center;
+  font: bold 13px monospace;
+  border: 3px solid;
+  border-color: #eee #333 #333 #eee;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.next-button:hover {
+  background: #ddd;
+}
+
+.next-button:active {
+  border-color: #333 #eee #eee #333;
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.next-button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0;
+  color: #aaa;
+  font: 11px monospace;
+}
+
+.led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  background: #77ff77;
+  box-shadow: 0 0 8px #44ff44;
+}
+
+footer {
+  text-align: center;
+  color: #888;
+  font: 11px monospace;
+  padding-top: 18px;
+}
+
+.jobs-desktop {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .desktop-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+    margin: 28px 0;
+  }
+
+  .desktop-content .window {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .desktop-content .window-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .jobs-desktop {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid;
+    border-color: #eee #333 #333 #eee;
+    box-shadow: 4px 4px #000;
+    background: #aaa;
+    overflow: hidden;
+  }
+
+  .jobs-desktop img {
+    display: block;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: pixelated;
+    background: #111;
+  }
+
+  .jobs-caption {
+    padding: 14px 10px;
+    color: #111;
+    background: #aaa;
+    text-align: center;
+    font: bold 13px monospace;
+  }
+}
+
+@media (max-width: 899px) {
+  body { padding: 10px; }
+  .workstation { padding: 16px; }
+  .logo-area { min-height: 260px; }
+  .next-logo { width: 185px; }
+  .status { font-size: 9px; }
+  .next-button { font-size: 12px; }
+}
+</style>
+</head>
+
+<body>
+<main class="workstation">
+
+  <div class="grille"></div>
+
+  <section class="logo-area">
+    <img
+      class="next-logo"
+      src="https://upload.wikimedia.org/wikipedia/commons/3/30/NeXT_logo.svg"
+      alt="NeXT Computer logo"
+    >
+  </section>
+
+  <div class="desktop-content">
+
+    <section class="window">
+      <div class="titlebar">
+        NeXTDEV.world — Development.app
+      </div>
+
+      <div class="window-content">
+        <h1>WELCOME TO NeXTDEV.WORLD</h1>
+        <p>Personal Retrocomputing Workstation</p>
+        <p>NeXT / UNIX / TECHNOLOGY</p>
+      </div>
+    </section>
+
+    <section class="jobs-desktop">
+      <div class="titlebar">
+        NeXT_History.app
+      </div>
+
+      <img
+        src="/jobs-next.png"
+        alt="Pixel-art interpretation of Steve Jobs in the NeXT era"
+      >
+
+      <div class="jobs-caption">
+        Steve Jobs — The NeXT Years
+        <br>
+        1985–1996
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="actions" aria-label="Development links">
+    <a
+      class="next-button"
+      href="https://github.com/demirduyulur"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      [ GitHub — View My Projects ]
+    </a>
+
+    <a class="next-button" href="/">
+      [ Workspace Manager ]
+    </a>
+  </nav>
+
+  <div class="status">
+    <span><span class="led"></span>SYSTEM READY</span>
+    <span>DEVELOPMENT MODE</span>
+  </div>
+
+  <div class="grille"></div>
+
+  <footer>
+    NeXTDEV.world © 2026
+    <p>Independent retrocomputing project</p>
+  </footer>
+
+</main>
+</body>
+</html>
