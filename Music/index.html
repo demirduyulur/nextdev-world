@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+
+<title>NeXTDEV.world — Music</title>
+<meta name="description" content="NeXTDEV Music Workstation — music, recordings, Spotify and Instagram.">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #080808;
+  color: #ddd;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.workstation {
+  width: 100%;
+  max-width: 1100px;
+  padding: 30px;
+  background: #191919;
+  border: 3px solid;
+  border-color: #777 #050505 #050505 #777;
+  box-shadow: inset 2px 2px #aaa,
+              inset -2px -2px #000,
+              0 25px 60px #000;
+}
+
+.grille {
+  height: 55px;
+  border: 3px solid #050505;
+  background: repeating-linear-gradient(
+    to bottom,
+    #000 0px,
+    #000 3px,
+    #444 4px,
+    #090909 5px,
+    #090909 8px
+  );
+  box-shadow: inset 0 3px 6px #000,
+              0 2px 1px #555;
+}
+
+.logo-area {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 10px;
+}
+
+.next-logo {
+  width: 210px;
+  max-width: 75%;
+  height: auto;
+  filter: drop-shadow(0 14px 15px #000);
+}
+
+.window {
+  max-width: 760px;
+  margin: 0 auto 25px;
+  background: #aaa;
+  border: 3px solid;
+  border-color: #eee #333 #333 #eee;
+  box-shadow: 4px 4px #000;
+}
+
+.titlebar {
+  background: linear-gradient(#555, #111);
+  color: white;
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.window-content {
+  padding: 30px 20px;
+  color: #111;
+  text-align: center;
+  font-family: monospace;
+}
+
+.window-content h1 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.window-content p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.music-icon {
+  margin: 15px 0;
+  font-size: 56px;
+  color: #222;
+}
+
+.divider-line {
+  height: 3px;
+  margin: 24px 0;
+  background: #666;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #eee;
+}
+
+.music-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 25px 0 10px;
+}
+
+.next-button {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px 18px;
+  color: #111;
+  background: #bcbcbc;
+  text-decoration: none;
+  text-align: center;
+  font: bold 14px monospace;
+  border: 3px solid;
+  border-color: #fff #444 #444 #fff;
+  box-shadow: 4px 4px 0 #555;
+}
+
+.next-button:hover {
+  background: #ddd;
+}
+
+.next-button:active {
+  border-color: #444 #fff #fff #444;
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.next-button:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 4px;
+}
+
+.back-area {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 13px 22px;
+  color: #111;
+  background: #aaa;
+  text-decoration: none;
+  text-align: center;
+  font: bold 13px monospace;
+  border: 3px solid;
+  border-color: #eee #333 #333 #eee;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.back-button:hover {
+  background: #ddd;
+}
+
+.back-button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0;
+  color: #aaa;
+  font: 11px monospace;
+}
+
+.led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  background: #77ff77;
+  box-shadow: 0 0 8px #44ff44;
+}
+
+footer {
+  padding-top: 18px;
+  color: #888;
+  text-align: center;
+  font: 11px monospace;
+}
+
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .workstation { padding: 16px; }
+  .logo-area { min-height: 230px; }
+  .next-logo { width: 180px; }
+  .window-content { padding: 22px 12px; }
+  .window-content h1 { font-size: 18px; }
+  .next-button { font-size: 12px; }
+  .status { font-size: 9px; }
+}
+</style>
+</head>
+
+<body>
+<main class="workstation">
+
+  <div class="grille"></div>
+
+  <section class="logo-area">
+    <img
+      class="next-logo"
+      src="https://upload.wikimedia.org/wikipedia/commons/3/30/NeXT_logo.svg"
+      alt="NeXT Computer logo"
+    >
+  </section>
+
+  <section class="window">
+    <div class="titlebar">
+      NeXTDEV.world — Music.app
+    </div>
+
+    <div class="window-content">
+
+      <div class="music-icon">♫</div>
+
+      <h1>MUSIC WORKSTATION</h1>
+
+      <p>Welcome to the music department.</p>
+      <p>RECORDING / PERFORMANCE / AUDIO</p>
+
+      <div class="divider-line"></div>
+
+      <p>ARTIST CONNECTIONS</p>
+
+      <nav class="music-links" aria-label="Music profiles">
+
+        <a
+          class="next-button"
+          href="https://open.spotify.com/artist/0SiSKF0tnNoMwzZoRpbKgE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          [ ♫ Spotify — Listen Now ]
+        </a>
+
+        <a
+          class="next-button"
+          href="https://www.instagram.com/demirduyulur/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          [ @ Instagram — Follow ]
+        </a>
+
+      </nav>
+
+      <div class="divider-line"></div>
+
+      <p>NeXTDEV MUSIC SYSTEM</p>
+      <p>CREATIVITY ONLINE</p>
+
+    </div>
+  </section>
+
+  <nav class="back-area" aria-label="Site navigation">
+    <a class="back-button" href="/">
+      [ Workspace Manager ]
+    </a>
+  </nav>
+
+  <div class="status">
+    <span><span class="led"></span>SYSTEM READY</span>
+    <span>MUSIC MODE</span>
+  </div>
+
+  <div class="grille"></div>
+
+  <footer>
+    NeXTDEV.world © 2026
+    <p>Independent creative workstation</p>
+  </footer>
+
+</main>
+</body>
+</html>
