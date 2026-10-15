@@ -1,28 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>NeXTDEV.world — Personal Workstation</title>
-
-<meta name="description" content="NeXTDEV.world — An independent retrocomputing project exploring NeXT computers, NeXTSTEP, UNIX, and computing history.">
+<meta name="theme-color" content="#080808">
+<title>NeXTDEV.world — Workstation Selector</title>
+<meta name="description" content="NeXTDEV.world — Choose between the Development and Music workstations.">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: #080808;
-  color: #ddd;
-  font-family: Helvetica, Arial, sans-serif;
+  padding: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px;
+  background: #080808;
+  color: #ddd;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .workstation {
@@ -32,10 +30,9 @@ body {
   background: #191919;
   border: 3px solid;
   border-color: #777 #050505 #050505 #777;
-  box-shadow:
-    inset 2px 2px #aaa,
-    inset -2px -2px #000,
-    0 25px 60px #000;
+  box-shadow: inset 2px 2px #aaa,
+              inset -2px -2px #000,
+              0 25px 60px #000;
 }
 
 .grille {
@@ -49,28 +46,28 @@ body {
     #090909 5px,
     #090909 8px
   );
-  box-shadow:
-    inset 0 3px 6px #000,
-    0 2px 1px #555;
+  box-shadow: inset 0 3px 6px #000,
+              0 2px 1px #555;
 }
 
 .logo-area {
-  min-height: 340px;
+  min-height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 45px 10px;
+  padding: 40px 10px;
 }
 
 .next-logo {
-  width: 230px;
+  width: 210px;
   max-width: 75%;
   height: auto;
   filter: drop-shadow(0 14px 15px #000);
 }
 
 .window {
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
+  max-width: 760px;
   background: #aaa;
   border: 3px solid;
   border-color: #eee #333 #333 #eee;
@@ -78,28 +75,82 @@ body {
 }
 
 .titlebar {
+  padding: 10px 15px;
   background: linear-gradient(#555, #111);
   color: white;
-  padding: 10px 15px;
+  border-bottom: 2px solid #000;
   font-size: 13px;
   font-weight: bold;
-  border-bottom: 2px solid #000;
 }
 
 .window-content {
+  padding: 30px 20px;
   color: #111;
   text-align: center;
   font-family: monospace;
-  padding: 24px 12px;
 }
 
 .window-content h1 {
-  font-size: 19px;
+  margin: 0 0 12px;
+  font-size: 22px;
   letter-spacing: 2px;
 }
 
 .window-content p {
   font-size: 13px;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 155px;
+  padding: 20px 12px;
+  color: #111;
+  background: #bcbcbc;
+  text-decoration: none;
+  border: 3px solid;
+  border-color: #fff #444 #444 #fff;
+  box-shadow: 4px 4px 0 #555;
+}
+
+.choice:hover {
+  background: #ddd;
+}
+
+.choice:active {
+  border-color: #444 #fff #fff #444;
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.choice:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 3px;
+}
+
+.choice-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.choice-name {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.choice-description {
+  margin-top: 10px;
+  font-size: 11px;
 }
 
 .status {
@@ -120,141 +171,35 @@ body {
   box-shadow: 0 0 8px #44ff44;
 }
 
-/* NeXTSTEP-style GitHub button */
-.github-button {
-  display: block;
-  width: fit-content;
-  max-width: 100%;
-  margin: 25px auto;
-  padding: 13px 26px;
-  background: #aaa;
-  color: #111;
-  text-decoration: none;
-  text-align: center;
-  font: bold 14px monospace;
-  border: 3px solid;
-  border-color: #eee #333 #333 #eee;
-  box-shadow: 4px 4px 0 #000;
-  transition: background 0.15s;
-}
-
-.github-button:hover {
-  background: #ddd;
-}
-
-.github-button:active {
-  border-color: #333 #eee #eee #333;
-  box-shadow: none;
-  transform: translate(3px, 3px);
-}
-
-.github-button:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 4px;
-}
-
 footer {
-  text-align: center;
-  color: #888;
-  font: 11px monospace;
   padding-top: 18px;
+  color: #888;
+  text-align: center;
+  font: 11px monospace;
 }
 
-/* Hidden on mobile */
-.jobs-desktop {
-  display: none;
-}
-
-/* Desktop layout */
-@media (min-width: 900px) {
-  .desktop-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: stretch;
-    margin: 28px 0;
-  }
-
-  .desktop-content .window {
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .desktop-content .window-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .jobs-desktop {
-    display: flex;
-    flex-direction: column;
-    border: 3px solid;
-    border-color: #eee #333 #333 #eee;
-    box-shadow: 4px 4px #000;
-    background: #aaa;
-    overflow: hidden;
-  }
-
-  .jobs-desktop img {
-    display: block;
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    object-position: center;
-    image-rendering: pixelated;
-    background: #111;
-  }
-
-  .jobs-caption {
-    padding: 14px 10px;
-    color: #111;
-    background: #aaa;
-    text-align: center;
-    font: bold 13px monospace;
-  }
-}
-
-/* Mobile layout */
-@media (max-width: 899px) {
-  body {
-    padding: 10px;
-  }
-
-  .workstation {
-    padding: 16px;
-  }
-
-  .logo-area {
-    min-height: 260px;
-  }
-
-  .next-logo {
-    width: 185px;
-  }
-
-  .status {
-    font-size: 9px;
-  }
-
-  .github-button {
-    font-size: 12px;
-    padding: 12px 16px;
-  }
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .workstation { padding: 16px; }
+  .logo-area { min-height: 230px; }
+  .next-logo { width: 180px; }
+  .window-content { padding: 22px 12px; }
+  .window-content h1 { font-size: 18px; }
+  .choices { gap: 12px; }
+  .choice { min-height: 140px; padding: 14px 6px; }
+  .choice-icon { font-size: 30px; }
+  .choice-name { font-size: 16px; }
+  .choice-description { font-size: 10px; }
+  .status { font-size: 9px; }
 }
 </style>
 </head>
 
 <body>
-
 <main class="workstation">
 
-  <!-- TOP VENTILATION GRILLE -->
   <div class="grille"></div>
 
-  <!-- ORIGINAL NeXT LOGO -->
   <section class="logo-area">
     <img
       class="next-logo"
@@ -263,70 +208,50 @@ footer {
     >
   </section>
 
-  <div class="desktop-content">
+  <section class="window">
+    <div class="titlebar">
+      NeXTDEV.world — Workspace Manager
+    </div>
 
-    <!-- WELCOME WINDOW -->
-    <section class="window">
-      <div class="titlebar">
-        NeXTDEV.world — Workspace
+    <div class="window-content">
+      <h1>SELECT WORKSTATION</h1>
+      <p>Welcome to NeXTDEV.world</p>
+      <p>Choose an environment to launch.</p>
+
+      <div class="choices">
+
+        <a class="choice" href="/Dev/">
+          <span class="choice-icon">⌘</span>
+          <span class="choice-name">DEV</span>
+          <span class="choice-description">
+            UNIX / COMPUTING
+          </span>
+        </a>
+
+        <a class="choice" href="/Music/">
+          <span class="choice-icon">♫</span>
+          <span class="choice-name">MUSIC</span>
+          <span class="choice-description">
+            AUDIO / ARTIST
+          </span>
+        </a>
+
       </div>
+    </div>
+  </section>
 
-      <div class="window-content">
-        <h1>WELCOME TO NeXTDEV.WORLD</h1>
-        <p>Personal Retrocomputing Workstation</p>
-        <p>NeXT / UNIX / TECHNOLOGY</p>
-      </div>
-    </section>
-
-    <!-- DESKTOP-ONLY STEVE JOBS PORTRAIT -->
-    <section class="jobs-desktop">
-      <div class="titlebar">
-        NeXT_History.app
-      </div>
-
-      <img
-        src="jobs-next.png"
-        alt="Pixel-art interpretation of Steve Jobs in the NeXT era"
-      >
-
-      <div class="jobs-caption">
-        Steve Jobs — The NeXT Years
-        <br>
-        1985–1996
-      </div>
-    </section>
-
-  </div>
-
-  <!-- GITHUB BUTTON -->
-  <a
-    class="github-button"
-    href="https://github.com/demirduyulur"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    [ GitHub — View My Projects ]
-  </a>
-
-  <!-- STATUS BAR -->
   <div class="status">
-    <span>
-      <span class="led"></span>
-      SYSTEM READY
-    </span>
-
-    <span>NeXTSTEP INSPIRED</span>
+    <span><span class="led"></span>SYSTEM READY</span>
+    <span>SELECT ENVIRONMENT</span>
   </div>
 
-  <!-- BOTTOM VENTILATION GRILLE -->
   <div class="grille"></div>
 
   <footer>
     NeXTDEV.world © 2026
-    <p>Independent retrocomputing project</p>
+    <p>Independent creative workstation</p>
   </footer>
 
 </main>
-
 </body>
 </html>
