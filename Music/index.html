@@ -7,10 +7,13 @@
 <meta name="theme-color" content="#080808">
 
 <title>NeXTDEV.world — Music</title>
-<meta name="description" content="NeXTDEV Music Workstation — music, recordings, Spotify and Instagram.">
+
+<meta name="description" content="NeXTDEV Music Workstation — Official music links for Demir Duyulur. Listen on Apple Music and Spotify, and connect on Instagram.">
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -31,9 +34,10 @@ body {
   background: #191919;
   border: 3px solid;
   border-color: #777 #050505 #050505 #777;
-  box-shadow: inset 2px 2px #aaa,
-              inset -2px -2px #000,
-              0 25px 60px #000;
+  box-shadow:
+    inset 2px 2px #aaa,
+    inset -2px -2px #000,
+    0 25px 60px #000;
 }
 
 .grille {
@@ -47,8 +51,9 @@ body {
     #090909 5px,
     #090909 8px
   );
-  box-shadow: inset 0 3px 6px #000,
-              0 2px 1px #555;
+  box-shadow:
+    inset 0 3px 6px #000,
+    0 2px 1px #555;
 }
 
 .logo-area {
@@ -106,6 +111,13 @@ body {
   margin: 15px 0;
   font-size: 56px;
   color: #222;
+}
+
+.artist-name {
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 15px 0;
 }
 
 .divider-line {
@@ -177,6 +189,12 @@ body {
   background: #ddd;
 }
 
+.back-button:active {
+  border-color: #333 #eee #eee #333;
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
 .back-button:focus-visible {
   outline: 3px solid white;
   outline-offset: 4px;
@@ -208,14 +226,37 @@ footer {
 }
 
 @media (max-width: 600px) {
-  body { padding: 10px; }
-  .workstation { padding: 16px; }
-  .logo-area { min-height: 230px; }
-  .next-logo { width: 180px; }
-  .window-content { padding: 22px 12px; }
-  .window-content h1 { font-size: 18px; }
-  .next-button { font-size: 12px; }
-  .status { font-size: 9px; }
+  body {
+    padding: 10px;
+  }
+
+  .workstation {
+    padding: 16px;
+  }
+
+  .logo-area {
+    min-height: 230px;
+  }
+
+  .next-logo {
+    width: 180px;
+  }
+
+  .window-content {
+    padding: 22px 12px;
+  }
+
+  .window-content h1 {
+    font-size: 18px;
+  }
+
+  .next-button {
+    font-size: 12px;
+  }
+
+  .status {
+    font-size: 9px;
+  }
 }
 </style>
 </head>
@@ -223,8 +264,10 @@ footer {
 <body>
 <main class="workstation">
 
+  <!-- TOP VENTILATION GRILLE -->
   <div class="grille"></div>
 
+  <!-- NeXT LOGO -->
   <section class="logo-area">
     <img
       class="next-logo"
@@ -233,7 +276,9 @@ footer {
     >
   </section>
 
+  <!-- MUSIC WORKSTATION WINDOW -->
   <section class="window">
+
     <div class="titlebar">
       NeXTDEV.world — Music.app
     </div>
@@ -244,31 +289,49 @@ footer {
 
       <h1>MUSIC WORKSTATION</h1>
 
+      <div class="artist-name">
+        DEMIR DUYULUR
+      </div>
+
       <p>Welcome to the music department.</p>
+
       <p>RECORDING / PERFORMANCE / AUDIO</p>
 
       <div class="divider-line"></div>
 
       <p>ARTIST CONNECTIONS</p>
 
+      <!-- MUSIC PLATFORMS -->
       <nav class="music-links" aria-label="Music profiles">
 
+        <!-- APPLE MUSIC -->
+        <a
+          class="next-button"
+          href="https://music.apple.com/tr/artist/demir-duyulur/6824979915"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          [ Apple Music — Listen Now ]
+        </a>
+
+        <!-- SPOTIFY -->
         <a
           class="next-button"
           href="https://open.spotify.com/artist/0SiSKF0tnNoMwzZoRpbKgE"
           target="_blank"
           rel="noopener noreferrer"
         >
-          [ ♫ Spotify — Listen Now ]
+          [ Spotify — Listen Now ]
         </a>
 
+        <!-- INSTAGRAM -->
         <a
           class="next-button"
           href="https://www.instagram.com/demirduyulur/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          [ @ Instagram — Follow ]
+          [ Instagram — Follow ]
         </a>
 
       </nav>
@@ -276,24 +339,33 @@ footer {
       <div class="divider-line"></div>
 
       <p>NeXTDEV MUSIC SYSTEM</p>
+
       <p>CREATIVITY ONLINE</p>
 
     </div>
   </section>
 
+  <!-- RETURN TO MAIN SELECTOR -->
   <nav class="back-area" aria-label="Site navigation">
     <a class="back-button" href="/">
       [ Workspace Manager ]
     </a>
   </nav>
 
+  <!-- SYSTEM STATUS -->
   <div class="status">
-    <span><span class="led"></span>SYSTEM READY</span>
+    <span>
+      <span class="led"></span>
+      SYSTEM READY
+    </span>
+
     <span>MUSIC MODE</span>
   </div>
 
+  <!-- BOTTOM VENTILATION GRILLE -->
   <div class="grille"></div>
 
+  <!-- FOOTER -->
   <footer>
     NeXTDEV.world © 2026
     <p>Independent creative workstation</p>
